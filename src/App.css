@@ -5,14 +5,9 @@
 
 .post {
     min-width: 18rem;
+    height: 32rem;
 }
 
 .img-fluid {
     height: 15rem;
 }
-
-@media screen and (min-width: 768px) {
-    .post {
-      max-width: 21rem;
-    }
-  }
