@@ -1,0 +1,18 @@
+.gray {
+    color: gray;
+    font-size: 0.92rem;
+}
+
+.post {
+    min-width: 18rem;
+}
+
+.img-fluid {
+    height: 15rem;
+}
+
+@media screen and (min-width: 768px) {
+    .post {
+      max-width: 21rem;
+    }
+  }
