@@ -11,3 +11,13 @@
 .img-fluid {
     height: 15rem;
 }
+
+#profile {
+    margin: auto;
+    max-width: 25rem;
+}
+
+.profile-img {
+    height: 10rem;
+    width: 11rem;
+}
