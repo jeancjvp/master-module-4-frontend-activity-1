@@ -5,7 +5,7 @@
         "likes": 4,
         "author": "@jean",
         "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-        "img": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+        "img": "./assets/images/cat.jpg",
         "comments": 10
     },
     {
@@ -14,7 +14,7 @@
         "likes": 10,
         "author": "@pedro",
         "description": "It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
-        "img": "https://imageio.forbes.com/specials-images/imageserve/5faad4255239c9448d6c7bcd/Best-Animal-Photos-Contest--Close-Up-Of-baby-monkey/960x0.jpg?fit=bounds&format=jpg",
+        "img": "./assets/images/comodo.jpg",
         "comments": 40
     },
     {
@@ -23,7 +23,7 @@
         "likes": 5,
         "author": "@maria",
         "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
-        "img": "https://media.springernature.com/relative-r300-703_m1050/springer-static/image/art%3A10.1038%2F528452a/MediaObjects/41586_2015_Article_BF528452a_Figg_HTML.jpg",
+        "img": "./assets/images/dog.jpg",
         "comments": 100
     },
     {
@@ -32,7 +32,7 @@
         "likes": 1,
         "author": "@marta",
         "description": "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-        "img": "https://www.healio.com/~/media/slack-news/infectious-disease/misc/infographics/2021/12_december/idn1221teres_graphic_01_web.jpg",
+        "img": "./assets/images/dolphin.jpg",
         "comments": 150
     },
     {
@@ -41,7 +41,7 @@
         "likes": 30,
         "author": "@jesus",
         "description": "Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy.",
-        "img": "https://thehill.com/sites/default/files/ca_wolfcam_041921istock_0.jpg",
+        "img": "./assets/images/elephant.jpg",
         "comments": 30
     },
     {
@@ -50,7 +50,7 @@
         "likes": 40,
         "author": "@carla",
         "description": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.",
-        "img": "https://columbuszoo.org/Media/columbus-zoo-aquarium/03-zoo-animals-lp_polar.jpg",
+        "img": "./assets/images/hippo.jpg",
         "comments": 102
     },
     {
@@ -59,7 +59,7 @@
         "likes": 55,
         "author": "@vane",
         "description": "Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.",
-        "img": "https://d1e00ek4ebabms.cloudfront.net/production/3908a505-ad76-4948-8652-1035b26051d3.jpg",
+        "img": "./assets/images/monkey.jpg",
         "comments": 300
     },
     {
@@ -68,7 +68,7 @@
         "likes": 400,
         "author": "@carlos",
         "description": "Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance.",
-        "img": "https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F210313023629-eurasian-lynx-file-2012.jpg",
+        "img": "./assets/images/tree.jpg",
         "comments": 18
     },
     {
@@ -77,7 +77,7 @@
         "likes": 43,
         "author": "@brando",
         "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.",
-        "img": "https://lsj.com.au/wp-content/uploads/2021/04/Legal-updates_Animal-law.jpg",
+        "img": "./assets/images/wolfs.jpg",
         "comments": 80
     }
 ]
