@@ -5,58 +5,71 @@ import NavBar from "./components/navbar";
 import PostList from "./components/postList";
 import SearchBar from "./components/searchBar";
 import Profile from "./components/profile";
+import Login from "./components/login";
 
 class App extends React.Component {
 	// Section Windows
-	sections = ["post", "profile"];
+	sections = ["post", "profile", "login"];
 
 	// State
 	state = {
-		loading: true,
 		section: this.sections[0],
 		search: "",
+		loginOk: false,
 	};
-
-	// Show Loading
-	showLoading() {
-		this.changeLoading(false);
-		return (
-			<div>Loading...</div>
-		);
-	}
-
-	// Change Loading State
-	changeLoading(loadingState) {
-		setTimeout(() => {
-			this.setState({ loading: loadingState });
-		}, 3000);
-	}
 
 	// Show Sections
 	showSection() {
-		if (this.state.section === this.sections[0]) {
-			if (this.state.loading) {
-				return (this.showLoading());
-			} else {
+		if (this.state.loginOk === true) {
+			if (this.state.section === this.sections[0]) {
 				return (
 					<>
 						<SearchBar 
 							value={this.state.search} 
 							onSearch={(value) => { this.changeSearch(value); }}
 						/>
-						<PostList postFilter={this.state.search}/>
+						<PostList 
+							postFilter={this.state.search}
+							noLogin={() => { 
+								this.changeLoginOk(false);
+								this.changeSection(this.sections[2]);
+							}}
+						/>
 					</>
 				);
 			}
-		} else if (this.state.section === this.sections[1]) {
+			
+			if (this.state.section === this.sections[1]) {
+				return (
+					<Profile 
+						avatar={profileData.avatar} 
+						userName={profileData.userName} 
+						bio={profileData.bio}
+					/>
+				);
+			}
+		}
+
+		if (this.state.section === this.sections[2] || this.state.loginOk !== true) {
+			// Clean Local Storage Token if any
+			if (localStorage.getItem("token")) {
+				localStorage.removeItem("token");
+			}
+
 			return (
-				<Profile 
-					avatar={profileData.avatar} 
-					userName={profileData.userName} 
-					bio={profileData.bio}
+				<Login 
+					onLoginComplete={() => { 
+						this.changeLoginOk(true); 
+						this.changeSection(this.sections[0]);
+					}} 
 				/>
 			);
 		}
+	}
+
+	// Change Login State
+	changeLoginOk(value) {
+		this.setState({ loginOk: value });
 	}
 
 	// Change Sections State

@@ -21,3 +21,12 @@
     height: 10rem;
     width: 11rem;
 }
+
+#login {
+    margin: auto;
+    max-width: 25rem;
+}
+
+.submit {
+    width: 100%;
+}
