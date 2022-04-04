@@ -1,4 +1,4 @@
-function SearchBar({value, onSearch}) {
+function SearchBar({ value, onSearch }) {
     return (
         <div className="form-inline my-3">
             <input 
@@ -6,7 +6,7 @@ function SearchBar({value, onSearch}) {
                 type="search" 
                 placeholder="Search" 
                 aria-label="Search"
-                value={value}
+                value={ value }
                 onChange={ (event) => { onSearch(event.target.value) } }
             />
         </div>
