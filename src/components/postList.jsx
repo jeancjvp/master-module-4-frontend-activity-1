@@ -1,53 +1,51 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Post from "./post";
-import postData from "../data/posts.json";
 import axios from "axios";
 
-class PostList extends React.Component {
-    // State
-    state = {
-        posts: []
-    }
+function PostList({ postFilter, noLogin }) {
 
-    componentDidMount() {
-		const url = "https://three-points.herokuapp.com/api/posts";
+    // State
+    const [posts, setPosts] = useState([]);
+
+    useEffect(() => {
+        const url   = "https://three-points.herokuapp.com/api/posts";
         const token = localStorage.getItem("token");
 
         axios.get(url, { headers: { Authorization: `Bearer ${token}` } })
             .then(res => { 
-                this.setState({ posts: postData });
+                setPosts(res.data);
             })
             .catch(err => {
-                this.props.noLogin();
+                noLogin();
             })
-	}
+    }, []);
 
-    render() {
-        if (this.state.posts.length < 1) {
-            return (
-                <div>Loading...</div>
-            );
-        }
-
+    if (posts.length < 1) {
         return (
-            <div className="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-                {this.state.posts
-                    .filter((card) => card.description.includes(this.props.postFilter))
-                    .map((card) => (
-                        <div className="col mb-3" key={card.id}>
-                            <Post
-                                createdAt={card.date}
-                                likes={card.likes}
-                                autor={card.author}
-                                text={card.description}
-                                image={card.img}
-                                comments={card.comments}
-                            />
-                        </div>
-                    ))}
-            </div>
+            <div>Loading...</div>
         );
     }
+
+    return (
+        <div className="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+            { posts
+                .filter((card) => card.text.includes(postFilter))
+                .map((card) => (
+                    <div className="col mb-3" key={ card.id }>
+                        <Post
+                            id={ card.id }
+                            createdAt={ card.createdAt }
+                            like={ card.likes }
+                            autor={ card.author.username }
+                            text={ card.text }
+                            image={ card.image }
+                            comments={ card.comments.length }
+                            noLogin={ () => { noLogin(); } }
+                        />
+                    </div>
+                )) }
+        </div>
+    );
     
 }
 export default PostList;

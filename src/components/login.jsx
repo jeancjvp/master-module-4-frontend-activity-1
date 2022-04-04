@@ -1,25 +1,13 @@
-import React from "react";
+import { useState } from "react";
 import axios from "axios";
 
-class Login extends React.Component {
+function Login({ onLoginComplete }) {
+
     // State
-    state = {
-        error : false,
-    }
-
-    // Construct
-    constructor(props) {
-        super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    // Change Error State
-    changeError(value) {
-        this.setState({ error : value });
-    }
+    const [error, setError] = useState(false);
 
     // Submit Handler
-    handleSubmit(event) {
+    function handleSubmit(event) {
         event.preventDefault();
         
         // Inputs
@@ -28,7 +16,7 @@ class Login extends React.Component {
 
         // Check if inputs are empty
         if (!email || !password) {
-            this.changeError(true); 
+            setError(true); 
             return;
         }
 
@@ -45,18 +33,18 @@ class Login extends React.Component {
                 const token = res.data.token;
                 localStorage.setItem("token", token);
 
-                this.changeError(false);
-                this.props.onLoginComplete();
+                setError(false);
+                onLoginComplete();
             })
             .catch(err => {
                 // Show Error
-                this.changeError(true);
+                setError(true);
             })
     }
 
     // Error Message to display
-    showAlert() {
-        if (this.state.error === true) {
+    function showAlert() {
+        if (error === true) {
             return (
                 <div className="alert alert-danger mb-3">
                     <strong>Invalid Email or Password.</strong>
@@ -65,24 +53,22 @@ class Login extends React.Component {
         }
     }
 
-    render() {
-        return (
-            <div id="login" className="justify-content-center my-2 p-3">
-                {this.showAlert()}
-                <form onSubmit={this.handleSubmit} >
-                    <div className="form-group mb-3">
-                        <label>Email</label>
-                        <input type="text" className="form-control" name="email" placeholder="Email" />
-                    </div>
-                    <div className="form-group my-3">
-                        <label>Password</label>
-                        <input type="password" className="form-control" name="password" placeholder="Password" />
-                    </div>
-                    <button type="submit" className="btn btn-primary my-2 submit">Login</button>
-                </form>
-            </div>
-        );
-    }
+    return (
+        <div id="login" className="justify-content-center my-2 p-3">
+            { showAlert() }
+            <form onSubmit={ handleSubmit } >
+                <div className="form-group mb-3">
+                    <label>Email</label>
+                    <input type="text" className="form-control" name="email" placeholder="Email" />
+                </div>
+                <div className="form-group my-3">
+                    <label>Password</label>
+                    <input type="password" className="form-control" name="password" placeholder="Password" />
+                </div>
+                <button type="submit" className="btn btn-primary my-2 submit">Login</button>
+            </form>
+        </div>
+    );
 }
 
 export default Login;
